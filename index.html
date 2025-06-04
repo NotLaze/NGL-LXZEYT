@@ -1,71 +1,129 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ask Me Anything</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@notlaze - Ask me anything</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: #ffbbf0;
+      font-family: 'Fredoka One', cursive;
+      background: linear-gradient(180deg, #ff4db8, #ff9933);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      color: #333;
-    }
+      min-height: 100vh;
+      color: #fff;
+    }.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  backdrop-filter: blur(15px);
+  text-align: center;
+}
 
-    .container {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      text-align: center;
-      width: 90%;
-      max-width: 400px;
-    }
+.profile {
+  background: #fff;
+  color: #000;
+  border-radius: 20px 20px 0 0;
+  padding: 15px;
+  margin-bottom: 15px;
+}
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
+.profile img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: none;
-      border-radius: 10px;
-      background: #f3f3f3;
-      font-size: 1rem;
-    }
+.profile h3 {
+  margin: 10px 0 0 0;
+  font-size: 1.1rem;
+}
 
-    button {
-      padding: 0.8rem 2rem;
-      background: #ff5ecf;
-      border: none;
-      color: white;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+.question-box {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #fff;
+}
 
-    button:hover {
-      background: #e04cb8;
-    }
+form input,
+form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+form button {
+  width: 100%;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.footer-link {
+  width: 100%;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.small-links {
+  font-size: 0.7rem;
+  margin-top: 10px;
+  color: rgba(255,255,255,0.7);
+}
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ask Me Anonymously 👀</h1>
-    <form action="https://formspree.io/f/mblylgbq" method="POST">
-      <input type="text" name="instagram_username" placeholder="Your Instagram Username" required />
-      <textarea name="question" placeholder="Your Question..." rows="5" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+  <div class="card">
+    <div class="profile">
+      <img src="https://i.imgur.com/fS2aMBT.jpg" alt="pfp">
+      <h3>@notlaze</h3>
+      <p>send me anonymous messages!</p>
+    </div><div class="question-box">
+  are u single?
+</div>
+
+<form action="https://formspree.io/f/mblylgbq" method="POST">
+  <input type="text" name="instagram_username" placeholder="Your Instagram username" required>
+  <textarea name="question" rows="3" placeholder="Type your question here..." required></textarea>
+  <button type="submit">Send!</button>
+</form>
+
+<div class="footer-text">
+  🔻 270 people just tapped the button 🔻
+</div>
+<a href="#" class="footer-link">Get your own messages!</a>
+<div class="small-links">Terms &nbsp;&nbsp; Privacy</div>
+
   </div>
 </body>
 </html>
