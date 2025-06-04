@@ -45,15 +45,6 @@
   font-size: 1.1rem;
 }
 
-.question-box {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
 form input,
 form textarea {
   width: 100%;
@@ -103,27 +94,40 @@ form button {
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="card" id="step1">
     <div class="profile">
       <img src="https://i.imgur.com/fS2aMBT.jpg" alt="pfp">
       <h3>@notlaze</h3>
       <p>send me anonymous messages!</p>
-    </div><div class="question-box">
-  are u single?
-</div>
-
-<form action="https://formspree.io/f/mblylgbq" method="POST">
-  <input type="text" name="instagram_username" placeholder="Your Instagram username" required>
-  <textarea name="question" rows="3" placeholder="Type your question here..." required></textarea>
-  <button type="submit">Send!</button>
-</form>
-
-<div class="footer-text">
-  🔻 270 people just tapped the button 🔻
-</div>
-<a href="#" class="footer-link">Get your own messages!</a>
-<div class="small-links">Terms &nbsp;&nbsp; Privacy</div>
-
-  </div>
-</body>
+    </div>
+    <form onsubmit="event.preventDefault(); goToStep2();">
+      <input type="text" id="username" placeholder="Enter your Instagram username" required>
+      <button type="submit">Next</button>
+    </form>
+  </div>  <div class="card" id="step2" style="display: none;">
+    <div class="profile">
+      <img src="https://i.imgur.com/fS2aMBT.jpg" alt="pfp">
+      <h3>@notlaze</h3>
+      <p>send me anonymous messages!</p>
+    </div>
+    <form action="https://formspree.io/f/mblylgbq" method="POST">
+      <input type="hidden" name="instagram_username" id="finalUsername">
+      <textarea name="question" rows="3" placeholder="Type your question here..." required></textarea>
+      <button type="submit">Send!</button>
+    </form>
+    <div class="footer-text">
+      👇 270 people just tapped the button 👇
+    </div>
+    <a href="#" class="footer-link">Get your own messages!</a>
+    <div class="small-links">Terms &nbsp;&nbsp; Privacy</div>
+  </div>  <script>
+    function goToStep2() {
+      const username = document.getElementById('username').value;
+      if (username.trim() !== '') {
+        document.getElementById('finalUsername').value = username;
+        document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
+      }
+    }
+  </script></body>
 </html>
