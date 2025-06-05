@@ -170,3 +170,32 @@
   </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NGL Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="images/ngl-logo.png" alt="NGL Logo" class="logo-img">
+    </div>
+    <h2>What's your Instagram handle?</h2>
+    <p>Ex: @champagnepapi</p>
+    <input type="text" placeholder="@" id="usernameInput">
+    <button onclick="goToNext()">Next</button>
+  </div>
+
+  <script>
+    function goToNext() {
+      const username = document.getElementById('usernameInput').value;
+      localStorage.setItem('username', username);
+      window.location.href = "ask.html";
+    }
+  </script>
+</body>
+</html>
+
