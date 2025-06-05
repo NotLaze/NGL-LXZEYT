@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,96 +16,128 @@
       justify-content: center;
       min-height: 100vh;
       color: #fff;
-    }.card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  backdrop-filter: blur(15px);
-  text-align: center;
-}
+    }
 
-.profile {
-  background: #fff;
-  color: #000;
-  border-radius: 20px 20px 0 0;
-  padding: 15px;
-  margin-bottom: 15px;
-}
+    .username-card, .question-card {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+    }
 
-.profile img {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-}
+    .username-card.active, .question-card.active {
+      display: block;
+    }
 
-.profile h3 {
-  margin: 10px 0 0 0;
-  font-size: 1.1rem;
-}
+    .logo {
+      font-size: 3rem;
+      font-weight: bold;
+      background: #000;
+      color: #fff;
+      padding: 5px 20px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
 
-form input,
-form textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 14px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-}
+    .heading {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
 
-form button {
-  width: 100%;
-  padding: 15px;
-  background: #000;
-  color: #fff;
-  font-size: 1rem;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
+    .example {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
 
-.footer-text {
-  margin-top: 10px;
-  font-size: 0.9rem;
-}
+    .input-field {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #000;
+      text-align: center;
+    }
 
-.footer-link {
-  width: 100%;
-  padding: 15px;
-  background: #000;
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
-}
+    .profile {
+      background: #fff;
+      color: #000;
+      border-radius: 20px 20px 0 0;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
 
-.small-links {
-  font-size: 0.7rem;
-  margin-top: 10px;
-  color: rgba(255,255,255,0.7);
-}
+    .profile img {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+    }
 
+    .profile h3 {
+      margin: 10px 0 0 0;
+      font-size: 1.1rem;
+    }
+
+    form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 14px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+    }
+
+    form button, .btn {
+      width: 100%;
+      padding: 15px;
+      background: #000;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .footer-text {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-link {
+      width: 100%;
+      padding: 15px;
+      background: #000;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .small-links {
+      font-size: 0.7rem;
+      margin-top: 10px;
+      color: rgba(255,255,255,0.7);
+    }
   </style>
 </head>
 <body>
-  <div class="card" id="step1">
-    <div class="profile">
-      <img src="https://i.imgur.com/fS2aMBT.jpg" alt="pfp">
-      <h3>@notlaze</h3>
-      <p>send me anonymous messages!</p>
-    </div>
-    <form onsubmit="event.preventDefault(); goToStep2();">
-      <input type="text" id="username" placeholder="Enter your Instagram username" required>
-      <button type="submit">Next</button>
-    </form>
-  </div>  <div class="card" id="step2" style="display: none;">
+  <div class="username-card active" id="step1">
+    <div class="logo">NGL</div>
+    <div class="heading">What's your Instagram handle?</div>
+    <div class="example">Ex: @champagnepapi</div>
+    <input type="text" id="username" class="input-field" placeholder="@" required>
+    <button class="btn" onclick="goToStep2()">Continue</button>
+  </div>
+
+  <div class="question-card" id="step2">
     <div class="profile">
       <img src="https://i.imgur.com/fS2aMBT.jpg" alt="pfp">
       <h3>@notlaze</h3>
@@ -120,14 +153,20 @@ form button {
     </div>
     <a href="#" class="footer-link">Get your own messages!</a>
     <div class="small-links">Terms &nbsp;&nbsp; Privacy</div>
-  </div>  <script>
+  </div>
+
+  <script>
     function goToStep2() {
-      const username = document.getElementById('username').value;
-      if (username.trim() !== '') {
+      const usernameInput = document.getElementById('username');
+      const username = usernameInput.value.trim();
+      if (username !== '') {
         document.getElementById('finalUsername').value = username;
-        document.getElementById('step1').style.display = 'none';
-        document.getElementById('step2').style.display = 'block';
+        document.getElementById('step1').classList.remove('active');
+        document.getElementById('step2').classList.add('active');
+      } else {
+        usernameInput.focus();
       }
     }
-  </script></body>
+  </script>
+</body>
 </html>
